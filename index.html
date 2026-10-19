@@ -1,0 +1,383 @@
+<!doctype html>
+<html lang="en">
+<head>  
+  <meta charset="utf-8">  
+  <meta name="viewport" content="width=device-width, initial-scale=1">  
+  <title>Unlock Redeem Code</title>  
+  <meta name="description" content="Unlock Redeem Code">  
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* Global Reset & Base */
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background-color: #0b0f19;
+      color: #ffffff;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Topbar */
+    .topbar {
+      background: #111827;
+      color: #f3f4f6;
+      padding: 16px;
+      text-align: center;
+      font-size: 18px;
+      font-weight: 700;
+      border-bottom: 1px solid #1f2937;
+      letter-spacing: 0.5px;
+    }
+
+    /* Main Page Layout */
+    .page {
+      flex: 1;
+      max-width: 600px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 20px 16px;
+    }
+
+    .video-section {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .claim-video-label {  
+      display: block;  
+      font-size: 15px;  
+      line-height: 1.4;  
+      font-weight: 700;  
+      color: #fbbf24;
+      text-align: center;
+    }
+
+    /* Video Wrapper */
+    .video-wrap {
+      width: 100%;
+      border-radius: 16px;
+      overflow: hidden;
+      border: 2px solid #374151;
+      background: #000;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+    }
+    .main-video {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    /* Offer Card */
+    .offer-card {
+      background: #1f2937;
+      border: 1px solid #374151;
+      border-radius: 20px;
+      padding: 20px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    }
+
+    .badges {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 14px;
+    }
+    .badge {
+      font-size: 11px;
+      font-weight: 800;
+      padding: 4px 10px;
+      border-radius: 20px;
+      letter-spacing: 0.5px;
+    }
+    .badge.new { background: #ef4444; color: #fff; }
+    .badge.premium { background: #3b82f6; color: #fff; }
+
+    .offer-main {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 20px;
+    }
+    .offer-img {
+      width: 70px;
+      height: 70px;
+      border-radius: 12px;
+      object-fit: cover;
+      border: 1px solid #4b5563;
+    }
+    .offer-copy h3 {
+      font-size: 18px;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 4px;
+    }
+    .offer-copy p {
+      font-size: 12px;
+      color: #9ca3af;
+      margin-bottom: 6px;
+      font-weight: 600;
+    }
+    .stars {
+      color: #fbbf24;
+      font-size: 14px;
+      letter-spacing: 2px;
+    }
+
+    /* Claim Button */
+    .claim-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      width: 100%;
+      padding: 14px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, #10b981, #059669);
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 16px;
+      font-weight: 800;
+      box-shadow: 0 4px 15px rgba(16, 185, 129, 0.4);
+      transition: transform 0.2s ease, opacity 0.2s ease;
+    }
+    .claim-btn:hover {
+      opacity: 0.95;
+      transform: translateY(-2px);
+    }
+
+    /* Connect Menu Styles */
+    #cashSnapMenu {    
+      position: fixed;    
+      top: 15px;    
+      right: 15px;    
+      z-index: 999999;    
+    }
+    #cashSnapMenuButton {    
+      width: 42px;    
+      height: 42px;    
+      padding: 8px;    
+      border: 1px solid #fbbf24;    
+      border-radius: 10px;    
+      background: #1f2937;    
+      cursor: pointer;
+      display: flex;    
+      flex-direction: column;    
+      justify-content: center;    
+      align-items: center;    
+      gap: 5px;
+    }
+    #cashSnapMenuButton span {    
+      display: block;    
+      width: 20px;    
+      height: 2px;    
+      background: #fbbf24;    
+      border-radius: 2px;
+    }
+    #cashSnapMenuDropdown {    
+      display: none;
+      position: absolute;    
+      top: 50px;    
+      right: 0;
+      width: 140px;    
+      padding: 6px;
+      background: #1f2937;    
+      border: 1px solid #fbbf24;    
+      border-radius: 10px;
+      box-shadow: 0 8px 25px rgba(0,0,0,.5);    
+    }
+    #cashSnapMenuDropdown a {    
+      display: block;    
+      padding: 10px 12px;
+      color: #fbbf24;    
+      text-decoration: none;
+      font-size: 13px;    
+      font-weight: 600;
+      border-radius: 6px;
+      text-align: center;
+    }
+    #cashSnapMenuDropdown a:hover {    
+      background: #374151;
+    }
+    #cashSnapMenuDropdown.cashSnapOpen {    
+      display: block;
+    }
+
+    /* Live Activity Box */
+    .sample-activity {  
+      width: 100%;  
+      margin-top: 20px;  
+      padding: 14px;  
+      border-radius: 16px;    
+      background: #1f2937;  
+      border: 1px solid #374151;  
+      box-shadow: 0 4px 20px rgba(0,0,0,0.2);  
+      color: #fff;
+    }
+    .sample-activity-title {  
+      font-size: 15px;  
+      font-weight: 700;  
+      margin-bottom: 6px;  
+      color: #f3f4f6;
+    }
+    .sample-activity-demo-label {  
+      display: inline-block;  
+      font-size: 10px;  
+      font-weight: 800;  
+      letter-spacing: .8px;  
+      padding: 3px 8px;  
+      border-radius: 999px;      
+      margin-bottom: 10px;
+      background: #ef4444;  
+      color: #ffffff;  
+    }
+    .sample-activity-row {  
+      display: flex;  
+      align-items: center;  
+      gap: 10px;  
+      padding: 10px;      
+      border-radius: 10px;  
+      animation: sampleActivityIn .35s ease both;
+      background: #111827;  
+      border: 1px solid #374151;  
+    }
+    .sample-activity-icon {  
+      width: 38px;  
+      height: 38px;  
+      flex: 0 0 38px;  
+      border-radius: 50%;  
+      overflow: hidden;    
+      border: 2px solid #3b82f6;  
+      background: #ffffff;  
+    }
+    .sample-activity-icon img {  
+      width: 100%;  
+      height: 100%;  
+      object-fit: cover;  
+      display: block;
+    }
+    .sample-activity-text {  
+      min-width: 0;  
+      font-size: 12px;  
+      line-height: 1.35;
+    }
+    .sample-activity-text strong {    
+      color: #60a5fa;
+    }
+    .sample-activity-text span {    
+      color: #d1d5db;
+    }
+    @keyframes sampleActivityIn {  
+      from { opacity: 0; transform: translateY(6px); }  
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ================= CONNECT US MENU ================= -->
+  <div id="cashSnapMenu">
+    <button id="cashSnapMenuButton" type="button" aria-label="Open menu" onclick="cashSnapToggleMenu(event)">        
+      <span></span>        
+      <span></span>        
+      <span></span>    
+    </button>
+    <div id="cashSnapMenuDropdown">
+      <a href="https://www.google.com" target="_blank" rel="noopener noreferrer">            
+        Connect Us        
+      </a>
+    </div>
+  </div>
+
+  <!-- ================= TOPBAR ================= -->
+  <header class="topbar">Unlock Redeem Code</header>
+
+  <!-- ================= MAIN CONTENT ================= -->
+  <main class="page">    
+    <section class="video-section">      
+      <h1><span class="claim-video-label">🤑 Watch How to Claim Redeem Code !!</span></h1>
+      
+      <div class="video-wrap">        
+        <!-- Added autoplay and muted so browser allows starting it -->
+        <video id="mainVideo" class="main-video" autoplay muted controls playsinline preload="metadata">          
+          <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">          
+          Your browser does not support the video tag.        
+        </video>      
+      </div>
+
+      <section class="offer-card">        
+        <div class="badges">          
+          <span class="badge new">LIMITED TIME</span>          
+          <span class="badge premium">FREE FIRE TOP UP</span>        
+        </div>
+        <div class="offer-main">          
+          <div class="offer-copy">            
+            <h3>Get ₹1000 Redeem Code !!</h3>            
+            <p>GOOGLE PLAY REDEEM CODE</p>            
+            <div class="stars" aria-label="5 stars">★★★★★</div>          
+          </div>        
+        </div>
+        <a id="claimButton" class="claim-btn" href="https://k03foxy.site/register.php?a=aT1xcXFoaGgyNyZwPTE0MjYwODQ4NDYzMDI2NTEmbT1mYWNlYm9vayZrPUVBQU54Y1RqZjZtSUJTdE5na0g4d05JenZMb0V2MW9CbXJ6S043bVVvS1FjSVNSWkIyYlE3WDFkNDM1VmhuYXBmUnNSTkgzRkN6eFBEVDVaQUlWZXJmSWlNc21HUlhBa1FveTNKeTlPREZmZDdwMTZYYlFDczJVN1J0NzIzUUxiTEkzYUNPdlpBcGJPbTVjdnlwTVZ3UVVsVlFGakV2emNrMDNVbWVTTzFzSHhMWkM0cmFnOFNGdzdTVExzaFpBSjVOWEFaRFpE" target="_blank" rel="noopener noreferrer">          
+          <span>🎁</span> CLAIM REDEEM CODE        
+        </a>      
+      </section>
+
+      <section id="sample-activity" class="sample-activity" aria-label="Recent Activity Demo">  
+        <div class="sample-activity-title">Live Users Claim Redeem Code</div>  
+        <div class="sample-activity-demo-label">Live Users</div>  
+        <div id="sample-activity-list"></div>
+      </section>
+    </section>  
+  </main>
+
+  <!-- ================= SCRIPTS ================= -->
+  <script>
+    function cashSnapToggleMenu(event) {
+      event.stopPropagation();
+      const menu = document.getElementById("cashSnapMenuDropdown");
+      menu.classList.toggle("cashSnapOpen");
+    }
+
+    document.addEventListener("click", function(event) {
+      const menu = document.getElementById("cashSnapMenu");    
+      const dropdown = document.getElementById("cashSnapMenuDropdown");
+      if (!menu.contains(event.target)) {        
+        dropdown.classList.remove("cashSnapOpen");    
+      }
+    });
+
+    /* Unmute and play video on first touch/click anywhere on page */
+    document.addEventListener("click", function unlockAudio() {
+      const video = document.getElementById("mainVideo");
+      if (video) {
+        video.muted = false;
+        video.play().catch(() => {});
+      }
+      // Remove listener after first click so it runs only once
+      document.removeEventListener("click", unlockAudio);
+    }, { once: true });
+
+    (function () {  
+      const names = ["Ka***al","Sh***ya","Na***sh","Hi***sh","Gi***sh","Bh***sh","Ka***an","As***in","Te***as","Hr***ik","Va***an","Ki***an","Mu***sh","Da***sh","Ha***sh","Lo***it","Va***un","Ar***an","Ku***aj","Ka***ik","Ar***un","Sa***ay","Pr***sh","Tr***ok","Is***ar","Ma***av","Sa***am","Ak***ay","Ro***in","Ya***er","Ro***it","Pr***ep","Ri***an","Ro***av","Mo***an","Ni***in","Ch***an","Sa***bh","Su***sh","Aa***sh","Ga***an","Ak***il","Vi***it","Ke***av","Vi***sh","Vi***ay","De***sh","Mo***aj","Tr***an","Vi***an","Mu***it","Ja***ed","Es***an","Um***sh","Su***an","Su***it","Yu***aj","Ba***aj","Na***ul","Dh***ay","Pr***av","Ma***ra","So***av","Ra***it","Mu***ul","Dh***aj","Ab***ek","Ar***av","Ya***al","Sh***as","Tu***ar","Ch***ya","Pr***ik","An***it","An***dh","Va***aj","Sh***ok","Dh***sh","An***an","Ra***ar","Bh***sh","Ni***il","So***sh","Sa***ak","Vi***ra","Fa***al","Va***al","Ak***sh","Ma***nk","Di***sh","Ut***sh","Ir***an","Ga***av","Ji***as","Sh***nu","Ab***ay","Sw***aj","Ra***er","Ra***iv","As***em","Si***th","Sh***ar","Yo***sh","Fa***an","Ya***aj","Go***al","Ra***aj","An***et","Ra***at","Sa***ir","Hi***ri","Ya***nt","Ni***av","Es***ar","Ga***ng","Va***sh","Pa***th","Ra***th","Si***sh","Ni***nt","Sa***er","Ka***il","Dh***uv","Ra***hu","Go***nd","Ru***ra","Da***an","Na***en","Ka***sh","Yu***in","De***aj","Ga***sh","Hi***hu","Pu***et","Sh***ey","De***ak","Su***il","Ra***ra","Ni***aj","Ch***iv","Pi***sh","Ra***an","Vi***nt","Ma***sh","Go***ul","Ad***ya","So***il","Ri***ik","Ja***ep","Ji***sh","Vi***as","Ya***ep","Ha***ep","De***hu","Ri***bh","Ma***ir","Ma***ur","Ro***ra","Im***an","Om***ar","Vi***en","Ja***sh","An***nd","Ks***ij","Pr***am","Ha***in","Ve***nt","Pa***aj","Sa***in","Ab***an","Na***ik","Sa***av","As***ok","Gi***aj","Ra***er","Pu***it","Sh***ra","Ka***ir","Ha***ik","Ta***un","Vi***al","Ka***sh","Sa***il","Pa***av","Av***sh","Di***ip","Vi***ek","Ta***an","Da***sh","Sa***ep","Ne***aj","Va***ad","So***am","Ka***aj","An***an","Ta***sh","Ni***sh","Ja***in","Ar***aj","Ru***in","Vi***nu","Sa***ar","Pr***nt","Vi***aj","Su***aj","Ra***ul","Ri***aj","Ni***it","Ri***it","Ru***aj","An***ol","Da***it","La***it","Ri***sh","La***ay","Lo***sh","Ru***sh","Sh***sh","Sh***am","Ku***al","Dh***al","He***nt","Sa***aj","Ma***ep","Ta***ak","Sh***ad","Ya***in","Aa***an","Ab***av","Ra***av","Mi***sh","Sa***it","Na***an","Kr***na","Ay***an","Ra***as","Bh***an","Va***il","Ka***ya","Na***ev","As***sh","Ta***sh","Ga***am","Ta***ay","De***ra","Da***il","Aa***av","Aa***ra","La***an","Ak***sh","Pr***ek","Ri***hi","Ma***oj","Vi***am","Ro***an","Pr***in","A***k","Ro***aj","Sa***ra","Ra***sh","Mi***ir","Mo***it","Ri***az","Sh***aj","Sh***nk","Va***av","Ta***uj","Is***an","Pa***iv"];  
+      const message = " Just Got ₹1000 Redeem Code !!";  
+      const list = document.getElementById("sample-activity-list");
+      
+      function findOfferImage() {    
+        const imgs = Array.from(document.images);    
+        return imgs.find(img => /google|play|redeem/i.test((img.alt || "") + " " + (img.src || ""))) || imgs[0];  
+      }
+      
+      let index = Math.floor(Math.random() * names.length);  
+      function renderActivity() {    
+        const img = findOfferImage();    
+        const name = names[index];    
+        index = (index + 1) % names.length;
+        list.innerHTML = '<div class="sample-activity-row"><div class="sample-activity-icon">' + (img && img.src ? '<img src="' + img.src.replace(/"/g, '&quot;') + '" alt="Google Play">' : '') + '</div><div class="sample-activity-text"><strong>🇮🇳 ' + name + '</strong><span> - ' + message + '</span></div></div>';  
+      }
+      
+      renderActivity();  
+      setInterval(renderActivity, 4500);
+    })();
+  </script>
+</body>
+</html>
