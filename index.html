@@ -10,7 +10,7 @@
     /* Global Reset & Base */
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
-      background-color: #0b0f19;
+      background: radial-gradient(circle at center, #1e1b4b 0%, #0f172a 100%);
       color: #ffffff;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       min-height: 100vh;
@@ -20,14 +20,15 @@
 
     /* Topbar */
     .topbar {
-      background: #111827;
-      color: #f3f4f6;
-      padding: 16px;
+      background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+      color: #ffffff;
+      padding: 18px;
       text-align: center;
-      font-size: 18px;
-      font-weight: 700;
-      border-bottom: 1px solid #1f2937;
-      letter-spacing: 0.5px;
+      font-size: 20px;
+      font-weight: 800;
+      box-shadow: 0 4px 20px rgba(59, 130, 246, 0.4);
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
     }
 
     /* Main Page Layout */
@@ -36,32 +37,33 @@
       max-width: 600px;
       width: 100%;
       margin: 0 auto;
-      padding: 20px 16px;
+      padding: 24px 16px;
     }
 
     .video-section {
       display: flex;
       flex-direction: column;
-      gap: 20px;
+      gap: 24px;
     }
 
     .claim-video-label {  
       display: block;  
-      font-size: 15px;  
+      font-size: 16px;  
       line-height: 1.4;  
-      font-weight: 700;  
-      color: #fbbf24;
+      font-weight: 800;  
+      color: #facc15;
       text-align: center;
+      text-shadow: 0 2px 10px rgba(250, 204, 21, 0.3);
     }
 
     /* Video Wrapper */
     .video-wrap {
       width: 100%;
-      border-radius: 16px;
+      border-radius: 20px;
       overflow: hidden;
-      border: 2px solid #374151;
+      border: 3px solid #6366f1;
       background: #000;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+      box-shadow: 0 15px 35px rgba(99, 102, 241, 0.3);
     }
     .main-video {
       width: 100%;
@@ -71,57 +73,60 @@
 
     /* Offer Card */
     .offer-card {
-      background: #1f2937;
-      border: 1px solid #374151;
-      border-radius: 20px;
-      padding: 20px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+      background: rgba(30, 41, 59, 0.8);
+      backdrop-filter: blur(10px);
+      border: 2px solid #38bdf8;
+      border-radius: 24px;
+      padding: 24px;
+      box-shadow: 0 15px 40px rgba(56, 189, 248, 0.15);
     }
 
     .badges {
       display: flex;
-      gap: 8px;
-      margin-bottom: 14px;
+      gap: 10px;
+      margin-bottom: 16px;
     }
     .badge {
       font-size: 11px;
       font-weight: 800;
-      padding: 4px 10px;
+      padding: 5px 12px;
       border-radius: 20px;
-      letter-spacing: 0.5px;
+      letter-spacing: 0.6px;
     }
-    .badge.new { background: #ef4444; color: #fff; }
-    .badge.premium { background: #3b82f6; color: #fff; }
+    .badge.new { background: #ef4444; color: #fff; box-shadow: 0 0 10px rgba(239, 68, 68, 0.5); }
+    .badge.premium { background: #3b82f6; color: #fff; box-shadow: 0 0 10px rgba(59, 130, 246, 0.5); }
 
     .offer-main {
       display: flex;
       align-items: center;
-      gap: 16px;
-      margin-bottom: 20px;
+      gap: 18px;
+      margin-bottom: 24px;
     }
     .offer-img {
-      width: 70px;
-      height: 70px;
-      border-radius: 12px;
+      width: 80px;
+      height: 80px;
+      border-radius: 16px;
       object-fit: cover;
-      border: 1px solid #4b5563;
+      border: 2px solid #38bdf8;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.5);
     }
     .offer-copy h3 {
-      font-size: 18px;
-      font-weight: 700;
+      font-size: 20px;
+      font-weight: 800;
       color: #ffffff;
-      margin-bottom: 4px;
+      margin-bottom: 6px;
     }
     .offer-copy p {
-      font-size: 12px;
-      color: #9ca3af;
-      margin-bottom: 6px;
-      font-weight: 600;
+      font-size: 13px;
+      color: #38bdf8;
+      margin-bottom: 8px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
     }
     .stars {
-      color: #fbbf24;
-      font-size: 14px;
-      letter-spacing: 2px;
+      color: #facc15;
+      font-size: 16px;
+      letter-spacing: 3px;
     }
 
     /* Claim Button */
@@ -129,21 +134,23 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 8px;
+      gap: 10px;
       width: 100%;
-      padding: 14px;
-      border-radius: 12px;
-      background: linear-gradient(135deg, #10b981, #059669);
+      padding: 16px;
+      border-radius: 14px;
+      background: linear-gradient(135deg, #22c55e, #16a34a);
       color: #ffffff;
       text-decoration: none;
-      font-size: 16px;
-      font-weight: 800;
-      box-shadow: 0 4px 15px rgba(16, 185, 129, 0.4);
-      transition: transform 0.2s ease, opacity 0.2s ease;
+      font-size: 18px;
+      font-weight: 900;
+      box-shadow: 0 6px 20px rgba(34, 197, 94, 0.5);
+      transition: all 0.3s ease;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
     }
     .claim-btn:hover {
-      opacity: 0.95;
-      transform: translateY(-2px);
+      transform: translateY(-3px);
+      box-shadow: 0 10px 25px rgba(34, 197, 94, 0.7);
     }
 
     /* Connect Menu Styles */
@@ -154,50 +161,52 @@
       z-index: 999999;    
     }
     #cashSnapMenuButton {    
-      width: 42px;    
-      height: 42px;    
+      width: 45px;    
+      height: 45px;    
       padding: 8px;    
-      border: 1px solid #fbbf24;    
-      border-radius: 10px;    
-      background: #1f2937;    
+      border: 2px solid #facc15;    
+      border-radius: 12px;    
+      background: #1e293b;    
       cursor: pointer;
       display: flex;    
       flex-direction: column;    
       justify-content: center;    
       align-items: center;    
-      gap: 5px;
+      gap: 6px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.5);
     }
     #cashSnapMenuButton span {    
       display: block;    
-      width: 20px;    
+      width: 22px;    
       height: 2px;    
-      background: #fbbf24;    
+      background: #facc15;    
       border-radius: 2px;
     }
     #cashSnapMenuDropdown {    
       display: none;
       position: absolute;    
-      top: 50px;    
+      top: 55px;    
       right: 0;
-      width: 140px;    
-      padding: 6px;
-      background: #1f2937;    
-      border: 1px solid #fbbf24;    
-      border-radius: 10px;
-      box-shadow: 0 8px 25px rgba(0,0,0,.5);    
+      width: 150px;    
+      padding: 8px;
+      background: #1e293b;    
+      border: 2px solid #facc15;    
+      border-radius: 12px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.6);    
     }
     #cashSnapMenuDropdown a {    
       display: block;    
-      padding: 10px 12px;
-      color: #fbbf24;    
+      padding: 10px 14px;
+      color: #facc15;    
       text-decoration: none;
-      font-size: 13px;    
-      font-weight: 600;
-      border-radius: 6px;
+      font-size: 14px;    
+      font-weight: 700;
+      border-radius: 8px;
       text-align: center;
+      transition: background 0.2s;
     }
     #cashSnapMenuDropdown a:hover {    
-      background: #374151;
+      background: #334155;
     }
     #cashSnapMenuDropdown.cashSnapOpen {    
       display: block;
@@ -206,49 +215,52 @@
     /* Live Activity Box */
     .sample-activity {  
       width: 100%;  
-      margin-top: 20px;  
-      padding: 14px;  
-      border-radius: 16px;    
-      background: #1f2937;  
-      border: 1px solid #374151;  
-      box-shadow: 0 4px 20px rgba(0,0,0,0.2);  
+      margin-top: 10px;  
+      padding: 16px;  
+      border-radius: 20px;    
+      background: rgba(30, 41, 59, 0.8);  
+      backdrop-filter: blur(10px);
+      border: 2px solid #6366f1;  
+      box-shadow: 0 8px 25px rgba(99, 102, 241, 0.2);  
       color: #fff;
     }
     .sample-activity-title {  
-      font-size: 15px;  
-      font-weight: 700;  
-      margin-bottom: 6px;  
-      color: #f3f4f6;
+      font-size: 16px;  
+      font-weight: 800;  
+      margin-bottom: 8px;  
+      color: #f8fafc;
     }
     .sample-activity-demo-label {  
       display: inline-block;  
       font-size: 10px;  
       font-weight: 800;  
       letter-spacing: .8px;  
-      padding: 3px 8px;  
+      padding: 4px 10px;  
       border-radius: 999px;      
-      margin-bottom: 10px;
+      margin-bottom: 12px;
       background: #ef4444;  
       color: #ffffff;  
+      box-shadow: 0 0 10px rgba(239, 68, 68, 0.5);
     }
     .sample-activity-row {  
       display: flex;  
       align-items: center;  
-      gap: 10px;  
-      padding: 10px;      
-      border-radius: 10px;  
+      gap: 12px;  
+      padding: 12px;      
+      border-radius: 14px;  
       animation: sampleActivityIn .35s ease both;
-      background: #111827;  
-      border: 1px solid #374151;  
+      background: #0f172a;  
+      border: 1px solid #334155;  
     }
     .sample-activity-icon {  
-      width: 38px;  
-      height: 38px;  
-      flex: 0 0 38px;  
+      width: 42px;  
+      height: 42px;  
+      flex: 0 0 42px;  
       border-radius: 50%;  
       overflow: hidden;    
-      border: 2px solid #3b82f6;  
+      border: 2px solid #38bdf8;  
       background: #ffffff;  
+      box-shadow: 0 0 10px rgba(56, 189, 248, 0.4);
     }
     .sample-activity-icon img {  
       width: 100%;  
@@ -258,17 +270,17 @@
     }
     .sample-activity-text {  
       min-width: 0;  
-      font-size: 12px;  
-      line-height: 1.35;
+      font-size: 13px;  
+      line-height: 1.4;
     }
     .sample-activity-text strong {    
-      color: #60a5fa;
+      color: #38bdf8;
     }
     .sample-activity-text span {    
-      color: #d1d5db;
+      color: #e2e8f0;
     }
     @keyframes sampleActivityIn {  
-      from { opacity: 0; transform: translateY(6px); }  
+      from { opacity: 0; transform: translateY(8px); }  
       to { opacity: 1; transform: translateY(0); }
     }
   </style>
@@ -298,9 +310,8 @@
       <h1><span class="claim-video-label">🤑 Watch How to Claim Redeem Code !!</span></h1>
       
       <div class="video-wrap">        
-        <!-- Added autoplay and muted so browser allows starting it -->
         <video id="mainVideo" class="main-video" autoplay muted controls playsinline preload="metadata">          
-          <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">          
+          <source src="https://freefirediamonds-rewards.online/wp-content/uploads/2026/10/SURAJ-ADMIN-DASH-MAKEMONEY-WEBSITE-VIDEO-500rs-redeem-code.mp4" type="video/mp4">          
           Your browser does not support the video tag.        
         </video>      
       </div>
@@ -311,6 +322,8 @@
           <span class="badge premium">FREE FIRE TOP UP</span>        
         </div>
         <div class="offer-main">          
+          <!-- Image file name simple kar diya hai, apni image ka naam bhi 'redeem-card.jpg' rakh dena -->
+          <img class="offer-img" src="redeem-card.jpg" alt="Google Play Redeem Code">          
           <div class="offer-copy">            
             <h3>Get ₹1000 Redeem Code !!</h3>            
             <p>GOOGLE PLAY REDEEM CODE</p>            
@@ -353,7 +366,6 @@
         video.muted = false;
         video.play().catch(() => {});
       }
-      // Remove listener after first click so it runs only once
       document.removeEventListener("click", unlockAudio);
     }, { once: true });
 
